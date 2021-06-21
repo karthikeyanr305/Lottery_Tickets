@@ -167,7 +167,7 @@ public abstract class Competition implements Serializable {
      * Calls validateBill() to find whether the bill is valid enough to proceed. 
      * @return billId - stores id of bill
      */
-    public String idFormat() {
+    protected String idFormat() {
     	boolean isError = true;
     	String billId = "0";
     	keyboard.nextLine();
@@ -223,7 +223,7 @@ public abstract class Competition implements Serializable {
      * @param part - To check the part of the bill is valid (eg: memberId, used)
      * @return billIndex - Boolean to say whether the bill is valid
      */
-    boolean validateBill(String billId, String part) {
+    private boolean validateBill(String billId, String part) {
     	boolean validate = false;
     	
     	for(int i=0; i < bill.size(); i++) {
@@ -254,7 +254,7 @@ public abstract class Competition implements Serializable {
      * @param billId
      * @return billIndex - Index of the Bill object in the ArrayList bill 
      */
-    int billDetails(String billId) {
+    protected int billDetails(String billId) {
     	int billIndex = 0;
     	for(billIndex = 0; billIndex< bill.size(); billIndex++) {
     		if((bill.get(billIndex).getBillId()).equals(billId)) {
@@ -268,7 +268,7 @@ public abstract class Competition implements Serializable {
      * Updates the 'used' column of bill object in the ArrayList bill given a billIndex
      * @param billIndex
      */
-    void updateBill(int billIndex) {
+    protected void updateBill(int billIndex) {
     	bill.get(billIndex).setUsed(true);
     }
        
@@ -278,7 +278,7 @@ public abstract class Competition implements Serializable {
      * @param memberId
      * @return memberName 
      */
-    String memberDetailsName(String memberId) {
+    protected String memberDetailsName(String memberId) {
     	int memberIndex = 0;
     	for(memberIndex = 0; memberIndex<member.size(); memberIndex++) {
     		if(member.get(memberIndex).getMemberId().equals(memberId)) {
@@ -297,7 +297,7 @@ public abstract class Competition implements Serializable {
      * @param entryList - ArrayList of AutoNumbersEntry objects which stores all the info of entryId
      * @return distinctWinner - stores the final entryIds of winners(follows 1 prize per member)
      */
-    int[] maxPrize( int[] winnerList, ArrayList<AutoNumbersEntry> entryList) {
+    protected int[] maxPrize( int[] winnerList, ArrayList<AutoNumbersEntry> entryList) {
     	ArrayList<String> tempMemberList = new ArrayList<String>();
     	ArrayList<Integer> tempEntryList = new ArrayList<Integer>();
     	String[] memberList = new String[winnerList.length];

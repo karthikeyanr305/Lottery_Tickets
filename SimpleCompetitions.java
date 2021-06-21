@@ -19,7 +19,7 @@ import java.io.IOException;
  */
 public class SimpleCompetitions {
 	
-	ArrayList<Competition> newCompetition = new ArrayList<Competition>();
+	private ArrayList<Competition> newCompetition = new ArrayList<Competition>();
 	
     public Competition addNewCompetition(Scanner keyboard, char competitionType, char mode) {
     	
@@ -235,7 +235,7 @@ public class SimpleCompetitions {
 	 * Function to write the binary file to save competitions.
 	 * @param fileName - Name of the binary file that needs to be written
 	 */
-	void writeBinary(String fileName) {
+	private void writeBinary(String fileName) {
 		try {
 			ObjectOutputStream demoOut = new ObjectOutputStream(new FileOutputStream(fileName));
 			demoOut.writeObject(newCompetition);
@@ -253,7 +253,7 @@ public class SimpleCompetitions {
 	 * @param keyboard - Scanner object
 	 * @return dataProvider - an object of DataProvider which contains info on member and bill
 	 */
-	DataProvider fileDetails(Scanner keyboard) {
+	public DataProvider fileDetails(Scanner keyboard) {
 		
 		String memberFile;
         String billFile;		
@@ -288,7 +288,7 @@ public class SimpleCompetitions {
 	 * @param keyboard
 	 * @return rightFile - character to identify whether the file is right or not
 	 */
-	char rightFileLoop(Scanner keyboard) {
+	public char rightFileLoop(Scanner keyboard) {
 		char rightFile = 'n';
 		char stay = 'a';
 		System.out.printf("Please choose 'Y' to re-enter the files or 'N' to exit. (Y/N)%n");           	

@@ -132,7 +132,7 @@ public class DataProvider  implements Serializable{
       * Function to write the updated bill objects to the bill file
       * @param bill - Array list of bill objects that are to be updated.
       */
-     void updateBillFile(ArrayList<Bill> bill ) {
+     public void updateBillFile(ArrayList<Bill> bill ) {
 
     	 try {
     		 PrintWriter billWrite = new PrintWriter(new FileOutputStream(billFile));
